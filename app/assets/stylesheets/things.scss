@@ -1,3 +1,7 @@
 td .form-inline > * {
-  vertical-align: top !important;
+  vertical-align: top;
+}
+
+td form, td .help-block {
+  margin-bottom: 0;
 }
