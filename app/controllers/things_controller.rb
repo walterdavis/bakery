@@ -40,6 +40,7 @@ class ThingsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @thing.errors, status: :unprocessable_entity }
+        format.js { render action: 'new' }
       end
     end
   end
@@ -55,6 +56,7 @@ class ThingsController < ApplicationController
       else
         format.html { render :edit }
         format.json { render json: @thing.errors, status: :unprocessable_entity }
+        format.js { }
       end
     end
   end

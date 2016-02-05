@@ -1,1 +1,5 @@
-$('#listing').append('<%=j render partial: 'thing_form' %>');
+if($('#new_thing').length > 0){
+  $('#new_thing').replaceWith('<%=j render partial: 'thing_form' %>');
+}else{
+  $('#listing').append('<%=j render partial: 'thing_form' %>');
+}
