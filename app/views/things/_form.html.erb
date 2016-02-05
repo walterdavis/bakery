@@ -1,25 +1,10 @@
-<%= form_for(@thing) do |f| %>
-  <% if @thing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@thing.errors.count, "error") %> prohibited this thing from being saved:</h2>
+<%= bootstrap_form_for(@thing, inline_errors: false) do |f| %>
+  <%= f.alert_message 'Please fix this:' %>
 
-      <ul>
-      <% @thing.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :foo %><br>
     <%= f.text_field :foo %>
-  </div>
-  <div class="field">
-    <%= f.label :bar %><br>
     <%= f.text_field :bar %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.form_group do %>
+    <%= f.submit class: 'btn btn-primary' %>
+    <%= link_to 'Back', things_path, class: 'btn btn-default' %>
+    <%- end -%>
 <% end %>
