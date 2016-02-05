@@ -11,8 +11,6 @@ class ThingsController < ApplicationController
   # GET /things/1.json
   def show
     respond_to do |format|
-      format.html {}
-      format.json {}
       format.js { render action: 'update' }
     end
   end
@@ -20,7 +18,6 @@ class ThingsController < ApplicationController
   # GET /things/new
   def new
     @thing = Thing.new
-    
   end
 
   # GET /things/1/edit
@@ -34,12 +31,8 @@ class ThingsController < ApplicationController
 
     respond_to do |format|
       if @thing.save
-        format.html { redirect_to @thing, notice: 'Thing was successfully created.' }
-        format.json { render :show, status: :created, location: @thing }
         format.js {}
       else
-        format.html { render :new }
-        format.json { render json: @thing.errors, status: :unprocessable_entity }
         format.js { render action: 'new' }
       end
     end
@@ -50,12 +43,8 @@ class ThingsController < ApplicationController
   def update
     respond_to do |format|
       if @thing.update(thing_params)
-        format.html { redirect_to @thing, notice: 'Thing was successfully updated.' }
-        format.json { render :show, status: :ok, location: @thing }
         format.js { }
       else
-        format.html { render :edit }
-        format.json { render json: @thing.errors, status: :unprocessable_entity }
         format.js { }
       end
     end
@@ -66,8 +55,6 @@ class ThingsController < ApplicationController
   def destroy
     @thing.destroy
     respond_to do |format|
-      format.html { redirect_to things_url, notice: 'Thing was successfully destroyed.' }
-      format.json { head :no_content }
       format.js {}
     end
   end
