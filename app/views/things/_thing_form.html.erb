@@ -1,0 +1,10 @@
+<%= content_tag_for :tr, @thing do %>
+<td colspan="4">
+<%= bootstrap_form_for @thing, remote: true, layout: :inline, hide_label: true, html: { id: nil } do |f| %>
+<%= f.text_field :foo, autofocus: true %>
+<%= f.text_field :bar %>
+<%= f.primary %>
+<%= link_to 'Cancel', @thing, remote: true, class: 'btn btn-default' %>
+<%- end %>
+<%- end %>
+</td>
