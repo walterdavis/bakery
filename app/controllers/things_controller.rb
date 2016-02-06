@@ -2,13 +2,11 @@ class ThingsController < ApplicationController
   before_action :set_thing, only: [:show, :edit, :update, :destroy]
 
   # GET /things
-  # GET /things.json
   def index
     @things = Thing.all
   end
 
   # GET /things/1
-  # GET /things/1.json
   def show
     respond_to do |format|
       format.js { render action: 'update' }
@@ -25,7 +23,6 @@ class ThingsController < ApplicationController
   end
 
   # POST /things
-  # POST /things.json
   def create
     @thing = Thing.new(thing_params)
 
@@ -39,7 +36,6 @@ class ThingsController < ApplicationController
   end
 
   # PATCH/PUT /things/1
-  # PATCH/PUT /things/1.json
   def update
     respond_to do |format|
       if @thing.update(thing_params)
@@ -51,7 +47,6 @@ class ThingsController < ApplicationController
   end
 
   # DELETE /things/1
-  # DELETE /things/1.json
   def destroy
     @thing.destroy
     respond_to do |format|
